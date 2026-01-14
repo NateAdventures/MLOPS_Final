@@ -1,4 +1,3 @@
-%%writefile src/models/train.py
 import os
 import json
 import argparse
