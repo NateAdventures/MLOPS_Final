@@ -26,7 +26,7 @@ source .venv/bin/activate  # Linux/Mac
 
 pip install -r requirements.txt
 pip install pytest black flake8
-
+```
 
 Подготовка данных и обучение модели (DVC)
 
@@ -43,7 +43,7 @@ prepare — валидация данных, feature engineering, split
 train — обучение модели, логирование метрик и сохранение модели
 
 Результаты:
-
+```
 data/processed/train.csv
 
 data/processed/test.csv
@@ -51,20 +51,20 @@ data/processed/test.csv
 models/credit_default_model.pkl
 
 metrics.json
-
+```
 MLflow (эксперименты)
 
 Для логирования экспериментов используется MLflow.
 
 Запуск UI:
-
+```
 mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5000
-
+```
 
 Открыть в браузере:
-
+```
 http://127.0.0.1:5000
-
+```
 
 Логируются:
 
@@ -98,7 +98,7 @@ REST API (FastAPI)
 Для инференса модели реализован REST API на FastAPI.
 
 Запуск локально:
-
+```
 uvicorn src.api.app:app --host 0.0.0.0 --port 8000
 
 
@@ -108,7 +108,7 @@ http://127.0.0.1:8000/docs
 
 
 Endpoint:
-
+```
 POST /predict — возвращает класс дефолта и вероятность
 
 Мониторинг дрифта данных
@@ -118,12 +118,12 @@ POST /predict — возвращает класс дефолта и вероят
 Скрипт имитирует поток новых данных и сравнивает их с обучающей выборкой.
 
 Запуск:
-
+```
 python -m src.api.drift_monitor \
   --train data/processed/train.csv \
   --test data/processed/test.csv \
   --url http://127.0.0.1:8000/predict
-
+```
 Итог
 
 В проекте реализованы:
