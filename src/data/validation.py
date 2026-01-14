@@ -1,4 +1,3 @@
-%%writefile src/data/validation.py
 import pandas as pd
 import pandera as pa
 from pandera import Column, Check
