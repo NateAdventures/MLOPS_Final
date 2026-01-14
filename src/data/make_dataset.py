@@ -1,4 +1,3 @@
-%%writefile src/data/make_dataset.py
 import os
 import argparse
 import pandas as pd
